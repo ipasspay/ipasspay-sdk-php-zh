@@ -1,12 +1,11 @@
 
+要使用时需配置IpasspayChannel/config/IpasspayConfig.php里相关参数
 使用sdk将只需按照文档创建请求数据，根据需要按Demo里简单调用即可与ipasspay进行通信
 使用sdk无需考虑时间戳(timestamp)参数和签名参数(signature)，以及整个签名过程，验签也只需简单调用方法进行判断
 使用sdk会将返回数据进行相关处理，可以通过相应方法直接获得数组形式的返回数据
 使用sdk在发起请求前会进行参数预判断，减少无效的服务器网络开销，也便于对接开发时发现错误
 
 建议有条件使用sdk包的商户尽量使用sdk包，本sdk包支持php5.6至php8.1
-
-要使用时先将IpasspayChannel/config/IpasspayConfig-dist.php改名为IpasspayConfig.php并配置相关参数
 
 Demo中
 
