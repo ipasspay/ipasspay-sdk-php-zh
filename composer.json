@@ -19,6 +19,12 @@
         "ext-json": "*",
         "ext-curl": "*"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://git.apihome.dev/ipasspay/ipasspay-sdk-php-cn.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Ipasspay\\": "src"
