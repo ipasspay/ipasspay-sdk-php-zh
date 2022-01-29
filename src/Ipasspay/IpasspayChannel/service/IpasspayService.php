@@ -1,6 +1,7 @@
 <?php
 namespace Ipasspay\IpasspayChannel\service;
 
+use Ipasspay\baseChannel\validate\Validate;
 use Ipasspay\IpasspayChannel\config\IpasspayConfig;
 use Ipasspay\IpasspayChannel\logic\CancelRefundLogic;
 use Ipasspay\IpasspayChannel\logic\NotifyOrderLogic;
@@ -15,6 +16,8 @@ use Ipasspay\IpasspayChannel\logic\UploadExpressLogic;
 
 class IpasspayService extends ChannelService
 {
+    protected $pay_url='';
+
     public function __construct($env='live')
     {
         $env_config=IpasspayConfig::ENV_CONFIG;
@@ -168,6 +171,25 @@ class IpasspayService extends ChannelService
             return $content['data']['signature'];
         }
         return '';
+    }
+
+    public function needRedirect() {
+        $content=$this->getRespnseContent();
+        if (isset($content['data']['pay_url']) && $content['data']['pay_url']!='') {
+            //验证pay_url的有效性
+            $this->pay_url=$data['pay_url']=urldecode($content['data']['pay_url']);
+            $this->validate_obj = new Validate();
+            return $this->validate_obj->rule('pay_url','check_protocol_url')->check($data);
+        }
+        return false;
+    }
+
+    public function toPayUrl() {
+        Header("Location:".$this->pay_url);
+    }
+
+    public function getPayUrl() {
+        return $this->pay_url;
     }
 
     public function getVerifySignString() {

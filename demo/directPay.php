@@ -35,7 +35,8 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     $request_data['asyn_notify_url'] = 'https://www.yourdomain.com/ipasspayNotify.php';
 
     //直连需要上传卡信息部分
-    $request_data['card_no'] = '5105105105105100';
+    $request_data['card_no'] = '5105105105105100';//Non-3DS
+    //$request_data['card_no'] = '4048411801551156';//3DS
     $request_data['card_ex_year'] = '25';
     $request_data['card_ex_month'] = '12';
     $request_data['card_cvv'] = '123';
@@ -84,8 +85,18 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
             //-------------
 
             $response_data=$ipasspay_service->getResponseData();//数组
-            //做相应业务处理......
-            break;
+            //直连接口中，需判断是否需要跳转(比如收单行需要3DS校验或访问中转页面)，如果需要跳转，则应将跳转地址交由顾客浏览器访问。
+            if ($ipasspay_service->needRedirect()) {
+                //需要跳转的情况下，交易最终结果需靠异步通知或订单查询进行确认
+                //toPayUrl方法会使用Header进行跳转
+                //如果希望自行处理跳转，可以使用getPayUrl获得跳转地址
+                $ipasspay_service->toPayUrl();
+                //echo $ipasspay_service->getPayUrl();
+                break;
+            } else{
+                //可按返回的交易状态做相应业务处理......
+                break;
+            }
         case IpasspayConfig::RESPONSE_CODE['REQUEST FAIL']:
         case IpasspayConfig::RESPONSE_CODE['REQUEST ERROR']:
         case IpasspayConfig::RESPONSE_CODE['INVALID PARAMETER']:
