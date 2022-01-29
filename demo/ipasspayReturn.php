@@ -1,5 +1,8 @@
 <?php
 
+//require '../vendor/autoload.php';//如果是使用composer获取的sdk，并不使用任何框架的话，注意添加此句，路径应可访问到vendor下的autoload.php
+//如果是直接获得的zip包，请自行将src下的文件放入项目，保证可以正确引用sdk包
+
 use Ipasspay\IpasspayChannel\service\IpasspayService;
 
     //同步通知(返回页面，跳转或3DS认证时会使用)

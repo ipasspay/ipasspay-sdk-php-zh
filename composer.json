@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ipasspay\\": "src"
+            "Ipasspay\\": "src/Ipasspay"
         }
     }
 }

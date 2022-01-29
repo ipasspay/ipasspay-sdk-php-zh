@@ -46,7 +46,7 @@ class Curl {
         'saveFile'              => '',
     );
 
-    public function setRetryTimes(int $retry = 2){
+    public function setRetryTimes($retry = 2){
         $this->retry = $retry;
         return $this;
     }
