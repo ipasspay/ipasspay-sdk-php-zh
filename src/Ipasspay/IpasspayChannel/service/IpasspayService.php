@@ -17,7 +17,8 @@ class IpasspayService extends ChannelService
 {
     public function __construct($env='live')
     {
-        if (isset(IpasspayConfig::ENV_CONFIG[$env])) {
+        $env_config=IpasspayConfig::ENV_CONFIG;
+        if (isset($env_config[$env])) {
             $this->config=IpasspayConfig::ENV_CONFIG[$env];
         } else {
             $this->config=IpasspayConfig::ENV_CONFIG['live'];
