@@ -7,7 +7,7 @@
     ],
     "homepage": "https://www.ipasspay.com/",
     "type": "library",
-    "license": "qeebey",
+    "license": "OSL-1.1",
     "authors": [
         {
             "name": "andrew yan",
