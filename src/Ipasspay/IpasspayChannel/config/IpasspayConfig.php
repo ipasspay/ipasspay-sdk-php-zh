@@ -125,13 +125,13 @@ class IpasspayConfig
         'ship_zip' => 'max:200',
         'ship_email' => 'email|max:60',
 
-        'custom_data' => 'is_string|max:2000',
+        'custom_data' => 'max:2000',
         'timestamp' => 'number|length:10',
 
         'gateway_order_no' => 'number|max:40',
         'refund_no'=>'alphaDash|length:1,48',
         'refund_amount'=>'float|gt:0|api_amount',
-        'refund_desc'=> 'is_string|max:200',
+        'refund_desc'=> 'max:200',
 
         'start_datetime' => 'dateFormat:Y-m-d H:i:s',
         'end_datetime' => 'dateFormat:Y-m-d H:i:s',
