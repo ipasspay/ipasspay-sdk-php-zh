@@ -1,7 +1,7 @@
 <?php
 namespace Ipasspay\IpasspayChannel\logic;
 
-use Ipasspay\IpasspayChannel\config\IpasspayConfig;
+use Ipasspay\IpasspayChannel\config\IpasspayConstant;
 
 class QueryOrderLogic extends IpasspayChannelCommonLogic
 {
@@ -27,7 +27,7 @@ class QueryOrderLogic extends IpasspayChannelCommonLogic
         $this->request_data['timestamp']=time();
         //初始化请求数据
         if (!$this->setRequestUrl()->createCommonData($params)->appendData()->validateData()) {
-            $this->error_code=IpasspayConfig::ERROR_CODE['REQUEST PARAM ERROR'];
+            $this->error_code=IpasspayConstant::ERROR_CODE['REQUEST PARAM ERROR'];
             $this->error_msg=$this->validate_obj->getError();
             return false;
         }

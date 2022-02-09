@@ -3,7 +3,7 @@
 //require '../vendor/autoload.php';//如果是使用composer获取的sdk，并不使用任何框架的话，注意添加此句，路径应可访问到vendor下的autoload.php
 //如果是直接获得的zip包，请自行将src下的文件放入项目，保证可以正确引用sdk包
 
-use Ipasspay\IpasspayChannel\config\IpasspayConfig;
+use Ipasspay\IpasspayChannel\config\IpasspayConstant;
 use Ipasspay\IpasspayChannel\service\IpasspayService;
 
     //对接ipasspay的退款请求
@@ -35,13 +35,13 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     echo '结果数据为'.json_encode($ipasspay_service->getResponseData(),JSON_UNESCAPED_UNICODE+JSON_UNESCAPED_SLASHES)."\n";
     //建议先判断结果状态码，如果是成功再取结果数据做相应业务处理。HTTP状态码可以根据需要做更加严谨的判断或记录
     switch ($ipasspay_service->getResponseCode()) {
-        case IpasspayConfig::RESPONSE_CODE['SUCCESS']:
+        case IpasspayConstant::RESPONSE_CODE['SUCCESS']:
             //说明请求返回结果正常（注：退款结果无签名）
             $response_data=$ipasspay_service->getResponseData();//数组
             //做相应业务处理......
             break;
-        case IpasspayConfig::RESPONSE_CODE['REQUEST FAIL']:
-        case IpasspayConfig::RESPONSE_CODE['INVALID PARAMETER']:
+        case IpasspayConstant::RESPONSE_CODE['REQUEST FAIL']:
+        case IpasspayConstant::RESPONSE_CODE['INVALID PARAMETER']:
         default:
             //理论上都是异常，按具体情况进行处理......
             //可以查看具体的出错信息

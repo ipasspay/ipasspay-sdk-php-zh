@@ -3,7 +3,7 @@ namespace Ipasspay\IpasspayChannel\logic;
 
 use Ipasspay\baseChannel\logic\ChannelCommonLogic;
 use Ipasspay\baseChannel\validate\Validate;
-use Ipasspay\IpasspayChannel\config\IpasspayConfig;
+use Ipasspay\IpasspayChannel\config\IpasspayConstant;
 
 abstract class IpasspayChannelCommonLogic extends ChannelCommonLogic
 {
@@ -35,7 +35,7 @@ abstract class IpasspayChannelCommonLogic extends ChannelCommonLogic
 
     protected function versionCheck() {
         if (!isset($this->config['version'])) {
-            $this->error_code=IpasspayConfig::ERROR_CODE['CONFIG ERROR'];
+            $this->error_code=IpasspayConstant::ERROR_CODE['CONFIG ERROR'];
             $this->error_msg='no version parameter in config file';
             return false;
         }
@@ -43,9 +43,9 @@ abstract class IpasspayChannelCommonLogic extends ChannelCommonLogic
     }
 
     protected function validateData() {
-        //校验部分。校验规则可在IpasspayConfig里配置
+        //校验部分。校验规则可在IpasspayConstant里配置
         //给必填数据增加require
-        $validate_rule=IpasspayConfig::PARAM_VALIDATE_RULE;
+        $validate_rule=IpasspayConstant::PARAM_VALIDATE_RULE;
         foreach ($this->request_data_field as $v){
             if (isset($validate_rule[$v])) {
                 $validate_rule[$v]='require|'.$validate_rule[$v];
