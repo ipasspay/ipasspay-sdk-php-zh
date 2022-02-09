@@ -1,6 +1,6 @@
 
 要使用时请先将src/IpasspayChannel/config目录下的
-IpasspayConfig-dist.php改名为IpasspayConfig.php，并按实际场景配置正确的商户方参数
+IpasspayConfig-dist.php复制为IpasspayConfig.php(cp IpasspayConfig-dist.php IpasspayConfig.php)，并按实际场景配置正确的商户方参数
 composer update ipasspay/sdk-cn时，不会改变IpasspayConfig.php文件
 
 使用sdk将只需按照文档创建请求数据，根据需要按Demo里简单调用即可与ipasspay进行通信
