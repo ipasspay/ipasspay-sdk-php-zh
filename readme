@@ -1,5 +1,8 @@
 
-要使用时需配置IpasspayChannel/config/IpasspayConfig.php里相关参数
+要使用时请先将src/IpasspayChannel/config目录下的
+IpasspayConfig-dist.php改名为IpasspayConfig.php，并按实际场景配置正确的商户方参数
+composer update ipasspay/sdk-cn时，不会改变IpasspayConfig.php文件
+
 使用sdk将只需按照文档创建请求数据，根据需要按Demo里简单调用即可与ipasspay进行通信
 使用sdk无需考虑时间戳(timestamp)参数和签名参数(signature)，以及整个签名过程，验签也只需简单调用方法进行判断
 使用sdk会将返回数据进行相关处理，可以通过相应方法直接获得数组形式的返回数据
