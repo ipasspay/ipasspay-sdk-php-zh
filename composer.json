@@ -24,8 +24,5 @@
         "psr-4": {
             "Ipasspay\\": "src/Ipasspay"
         }
-    },
-    "archive": {
-        "exclude": [".gitignore", "src/Ipasspay/IpasspayChannel/config/IpasspayConfig.php"]
     }
 }
