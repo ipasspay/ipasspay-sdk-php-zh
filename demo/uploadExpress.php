@@ -17,7 +17,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     $request_data['express_no']='12345678';//物流公司运单号
     //------------------------------------
 
-    //进行订单查询请求，只需进行如下调用
+    //尝试发起上传运单号请求，只需进行如下调用
     $ipasspay_service=new IpasspayService('sandbox');//env可以为live或sandbox对应相应的配置，缺省为live
     if (!$ipasspay_service->uploadExpress($request_data)) {
         //请求异常，可以通过以下方法知道错误原因，请完成您系统中的相应处理......
@@ -34,7 +34,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     //建议先判断结果状态码，如果是成功再取结果数据做相应业务处理。HTTP状态码可以根据需要做更加严谨的判断或记录
     switch ($ipasspay_service->getResponseCode()) {
         case IpasspayConfig::RESPONSE_CODE['SUCCESS']:
-            //说明请求返回结果正常（注：退款结果无签名）
+            //说明请求返回结果正常（注：上传运单号结果无签名）
             $response_data=$ipasspay_service->getResponseData();//数组
             //做相应业务处理......
             break;

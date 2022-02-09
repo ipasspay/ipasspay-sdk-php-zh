@@ -25,7 +25,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     echo '验签为'.$ipasspay_service->getVerifySign()."\n";
 
     //可以直接使用php获得请求参数的方法，获得参数进行处理......
-    echo '异步通知数据：'.json_encode($_REQUEST)."\n";
+    echo '同步通知数据：'.json_encode($_REQUEST)."\n";
     //也可使用sdk中的方法，获得参数进行处理......
     echo 'sdk中数据为'.json_encode($ipasspay_service->getNotifyData())."\n";
     //--------------------

@@ -35,7 +35,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     //建议先判断结果状态码，如果是成功再取结果数据做相应业务处理。HTTP状态码可以根据需要做更加严谨的判断或记录
     switch ($ipasspay_service->getResponseCode()) {
         case IpasspayConfig::RESPONSE_CODE['SUCCESS']:
-            //说明请求返回结果正常（注：退款结果无签名）
+            //说明请求返回结果正常（注：查询列表结果无签名）
             $response_data=$ipasspay_service->getResponseData();//数组
             //做相应业务处理......
             break;
