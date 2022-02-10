@@ -43,7 +43,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
         exit;
     }
 
-    //如果需要自行进行重定向，也可以使用redirectByGet(false)来获得重定向的地址
+    //如果需要自行进行重定向，可以使用redirectByGet(false)来获得重定向的地址
     /*$redirect_url=$ipasspay_service->redirectByGet(false);
     echo '重定向地址为'.$redirect_url;
     if ($redirect_url===false) {
@@ -53,7 +53,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
         exit;
     }*/
 
-    //如果使用sdk进行重定向。则redirectByGet()使用get方法自动跳转，如果需要也可以使用redirectByPost()方法进行post跳转，自由选择
+    //如果使用sdk进行重定向，则redirectByGet()使用get方法自动跳转，如果需要也可以使用redirectByPost()方法进行post跳转，自由选择
     if (!$ipasspay_service->redirectByPost()) {
         //请求异常，可以通过以下方法知道错误原因，请完成您系统中的相应处理
         echo '错误编码为'.$ipasspay_service->getErrorCode()."\n";
