@@ -13,6 +13,12 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
 
     //可将结果数据交由sdk进行验签，如果对验签不在意，或准备自己做相应判断，也可跳过这步
     $ipasspay_service=new IpasspayService('sandbox');//env可以为live或sandbox对应相应的配置，缺省为live
+
+    //注：如果需要通过程序动态进行商户信息的配置，可以在进行请求时使用setConfig($config)来改变IpasspayConfig.php文件里配置的数据
+    /*$config['merchant_id']='111111';
+    $config['app_id']='222222';
+    $config['api_secret']='333333';
+    if (!$ipasspay_service->setConfig($config)->verifyNotifyOrder($request_data)) {*/
     if (!$ipasspay_service->verifyNotifyOrder()) {
         //做相应验签失败的处理......
         error_log("验签失败");

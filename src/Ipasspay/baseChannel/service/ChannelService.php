@@ -17,6 +17,17 @@ abstract class ChannelService
     /* @var ChannelCommonLogic $logic_obj */
     protected $logic_obj;//业务逻辑对象
 
+    public function setConfig($config) {
+        if (is_array($config)) {
+            if (is_array($this->config)) {
+                $this->config=array_merge($this->config,$config);
+            } else {
+                $this->config=$config;
+            }
+        }
+        return $this;
+    }
+
     public function isSend() {
         return $this->handler->isSend();
     }

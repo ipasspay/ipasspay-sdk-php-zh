@@ -56,6 +56,12 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
 
     //进行直连支付请求，只需进行如下调用
     $ipasspay_service=new IpasspayService('sandbox');//env可以为live或sandbox对应相应的配置，缺省为live
+
+    //注：如果需要通过程序动态进行商户信息的配置，可以在进行请求时使用setConfig($config)来改变IpasspayConfig.php文件里配置的数据
+    /*$config['merchant_id']='111111';
+    $config['app_id']='222222';
+    $config['api_secret']='333333';
+    if (!$ipasspay_service->setConfig($config)->onlinePay($request_data)) {*/
     if (!$ipasspay_service->onlinePay($request_data)) {
         //请求异常，可以通过以下方法知道错误原因，请完成您系统中的相应处理......
         echo '错误编码为'.$ipasspay_service->getErrorCode()."\n";
