@@ -2,7 +2,7 @@
 namespace Ipasspay\IpasspayChannel\service;
 
 use Ipasspay\baseChannel\validate\Validate;
-use Ipasspay\IpasspayChannel\config\IpasspayConFig;
+use Ipasspay\IpasspayChannel\config\IpasspayConfig;
 use Ipasspay\IpasspayChannel\config\IpasspayConstant;
 use Ipasspay\IpasspayChannel\logic\CancelRefundLogic;
 use Ipasspay\IpasspayChannel\logic\NotifyOrderLogic;
