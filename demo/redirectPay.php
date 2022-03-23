@@ -23,7 +23,7 @@ use Ipasspay\IpasspayChannel\service\IpasspayService;
     $order_items[]=$order_item;
     $request_data['order_items'] = json_encode($order_items,JSON_UNESCAPED_UNICODE+JSON_UNESCAPED_SLASHES);//订单商品数据。Json字符串
 
-    $request_data['bill_email'] = 'test1@ipasspay.com';//顾客邮箱
+    $request_data['bill_email'] = 'test1@gmail.com';//顾客邮箱
 
     $request_data['source_url'] = 'http://www.yourdomain.com/pay?shopping_cart=123';//来源网址，用于记录商品支付网页地址
     //同步通知地址，用户完成交易后将跳转到该页面，跳转时将携带交易结果数据。
