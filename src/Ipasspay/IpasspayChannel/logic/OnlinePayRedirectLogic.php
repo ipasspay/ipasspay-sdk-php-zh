@@ -23,17 +23,12 @@ class OnlinePayRedirectLogic extends IpasspayChannelCommonLogic
         //根据版本号决定必要数据和可选数据
         switch ($this->config['version']) {
             case '1.0':
-                $this->request_data_field=array_merge(IpasspayConstant::PAY_PARAM['base'],IpasspayConstant::PAY_PARAM['1.0']);
-                $this->optional_data_field=IpasspayConstant::PAY_PARAM['optional'];
-                break;
             case '2.0':
-                $this->request_data_field=array_merge(IpasspayConstant::PAY_PARAM['base'],IpasspayConstant::PAY_PARAM['1.0']);
-                $this->optional_data_field=array_merge(IpasspayConstant::PAY_PARAM['optional'],IpasspayConstant::PAY_PARAM['2.0']);
-                break;
             case '3.0':
                 $this->request_data_field=array_merge(IpasspayConstant::PAY_PARAM['base'],IpasspayConstant::PAY_PARAM['1.0']);
                 $this->optional_data_field=array_merge(
                     IpasspayConstant::PAY_PARAM['optional'],
+                    IpasspayConstant::PAY_PARAM['gateway_1.0'],
                     IpasspayConstant::PAY_PARAM['2.0'],
                     IpasspayConstant::PAY_PARAM['3.0']
                 );
