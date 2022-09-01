@@ -23,5 +23,8 @@ queryOrder.php : 订单查询接口
 queryOrderList.php : 订单列表查询接口
 uploadExpress.php : 物流上传接口
 
-
 中文版api文档地址 : https://www.apihome.dev/ipasspay.biz/zh-cn/
+
+如果要使用Airsecurecard服务，则可以参考Demo中Airsecurecard目录下样例
+相应配置文件在src/AirsecurecardChannel/config目录下
+中文版api文档地址 : https://www.apihome.dev/airsecurecard.com/zh-cn/
