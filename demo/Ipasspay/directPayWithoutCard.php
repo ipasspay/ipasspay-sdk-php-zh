@@ -7,6 +7,7 @@ use Ipasspay\IpasspayChannel\config\IpasspayConstant;
 use Ipasspay\IpasspayChannel\service\IpasspayService;
 
     //无卡信息对接ipasspay的支付网关(比如数字货币支付网关，实际处理逻辑和直连基本一致，成功则返回结果中会有支付的链接供用户进一步访问)
+    //与直连接口相比，除了无需传信用卡信息外，只需调用$ipasspay_service->onlinePay($request_data,false)时，增加了第二个参数false(表明是否带信用卡信息)。
 
     //通过各种方式获得相应的用户数据后，可调用sdk完成加密和通讯。具体参数说明请参见api文档
     //注意：merchant_id、app_id、version、api_secret都在IpasspayConfig中进行配置，这里无需填写

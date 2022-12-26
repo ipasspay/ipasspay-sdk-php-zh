@@ -29,3 +29,7 @@ uploadExpress.php : 物流上传接口
 如果要使用Airsecurecard服务，则可以参考Demo中Airsecurecard目录下样例
 相应配置文件在src/AirsecurecardChannel/config目录下
 中文版api文档地址 : https://www.apihome.dev/airsecurecard.com/zh-cn/
+
+2022-12-26
+新增 无信用卡信息支付网关(比如数字货币支付网关) 相关样例和改动
+注意IpasspayConfig-dist.php中新增了without_card_pay_url
