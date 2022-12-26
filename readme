@@ -13,6 +13,7 @@ composer update ipasspay/sdk-cn时，不会改变IpasspayConfig.php文件
 Demo中
 
 directPay.php : 支付网关(直连)
+directPayWithoutCard.php : 无信用卡信息支付网关(比如数字货币支付网关)
 redirectPay.php : 支付网关(跳转)
 ipasspayNotify.php : 异步通知
 ipasspayReturn.php : 同步通知
